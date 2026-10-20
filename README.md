@@ -1,6 +1,11 @@
-# catchdev
+catchdev
 
-**Tells you what your AI coding agent just broke.**
+<p>
+  <strong>Tells you what your AI coding agent just broke.</strong>
+  <a href="https://github.com/sponsors/soham131345">
+    <img src="https://img.shields.io/badge/Sponsor-%E2%9D%A4-pink?logo=github" alt="Sponsor soham131345">
+  </a>
+</p>
 
 ![catch flags a real 4-month Flask regression in 2 seconds](demo/demo.gif)
 
