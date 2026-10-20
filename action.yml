@@ -1,0 +1,46 @@
+name: "Catch"
+description: "Tells you what your AI coding agent just broke — runs affected tests, flags sus deps"
+branding:
+  icon: "check-circle"
+  color: "red"
+inputs:
+  all-tests:
+    description: "Run full test suite instead of affected tests"
+    default: "false"
+  skip-deps:
+    description: "Skip dependency risk checks"
+    default: "false"
+  fail-on-suspicious:
+    description: "Fail on suspicious (not just dangerous) deps"
+    default: "false"
+runs:
+  using: "composite"
+  steps:
+    - name: Install catch
+      shell: bash
+      run: pip install catchdev
+    - name: Run catch
+      shell: bash
+      run: |
+        ARGS="--output catch-report.md"
+        # In a PR, catch auto-diffs against origin/$GITHUB_BASE_REF.
+        # Outside a PR, fall back to the last commit.
+        [ -z "$GITHUB_BASE_REF" ] && ARGS="--commit HEAD~1 $ARGS"
+        [ "${{ inputs.all-tests }}" = "true" ] && ARGS="$ARGS --all-tests"
+        [ "${{ inputs.skip-deps }}" = "true" ] && ARGS="$ARGS --skip-deps"
+        [ "${{ inputs.fail-on-suspicious }}" = "true" ] && ARGS="$ARGS --fail-on-suspicious"
+        catch $ARGS
+    - name: Comment report on PR
+      if: always() && github.event_name == 'pull_request'
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const fs = require('fs');
+          if (!fs.existsSync('catch-report.md')) return;
+          const body = fs.readFileSync('catch-report.md', 'utf8');
+          await github.rest.issues.createComment({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            issue_number: context.issue.number,
+            body,
+          });

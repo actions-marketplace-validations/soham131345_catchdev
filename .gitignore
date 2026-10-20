@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+*.egg-info/
+.catch_cache.json
+build/
+dist/

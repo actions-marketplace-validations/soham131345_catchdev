@@ -1,0 +1,22 @@
+# Copy this file into your repo as .github/workflows/catch.yml
+name: Catch
+on: [pull_request]
+jobs:
+  catch:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write        # to post the report as a PR comment
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0        # needed to diff against the PR base
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e .   # install the PR's own project
+      - uses: yourusername/catchdev@v1
+        # with:
+        #   all-tests: "false"
+        #   skip-deps: "false"
+        #   fail-on-suspicious: "false"

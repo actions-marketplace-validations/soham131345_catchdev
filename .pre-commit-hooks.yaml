@@ -1,0 +1,10 @@
+- id: catch
+  name: catch
+  description: "Runs affected tests against your staged changes"
+  entry: catch --staged --skip-deps
+  # language: system on purpose — catch must run the PROJECT's pytest with
+  # the PROJECT's dependencies, not an isolated pre-commit env.
+  # Requires: pip install catchdev (into the project environment).
+  language: system
+  pass_filenames: false
+  always_run: true
