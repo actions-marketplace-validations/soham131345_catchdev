@@ -4,3 +4,6 @@ __pycache__/
 .catch_cache.json
 build/
 dist/
+.pypirc
+.venv/
+venv/
