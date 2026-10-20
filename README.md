@@ -1,9 +1,12 @@
-catchdev
+<h1 align="center">catchdev</h1>
 
-<p>
+<p align="center">
   <strong>Tells you what your AI coding agent just broke.</strong>
+</p>
+
+<p align="center">
   <a href="https://github.com/sponsors/soham131345">
-    <img src="https://img.shields.io/badge/Sponsor-%E2%9D%A4-pink?logo=github" alt="Sponsor soham131345">
+    <img src="https://img.shields.io/badge/%E2%9D%A4-Sponsor-pink?style=for-the-badge&logo=github" alt="Sponsor soham131345">
   </a>
 </p>
 
