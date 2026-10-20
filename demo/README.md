@@ -64,6 +64,3 @@ asciinema rec demo.cast        # run the steps above
 agg demo.cast demo.gif
 ```
 
-## TODO (deferred)
-
-- 60-second video version with voiceover for the launch post / YouTube.
