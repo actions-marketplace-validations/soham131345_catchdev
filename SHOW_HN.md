@@ -5,7 +5,7 @@
 **Title:**
 Show HN: Catch – runs the tests your AI coding agent just broke, flags hallucinated deps
 
-**URL:** https://github.com/yourusername/catchdev
+**URL:** https://github.com/soham131345/catchdev
 
 **First comment** (paste within 60 seconds of posting):
 

@@ -84,7 +84,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install -e .
-      - uses: yourusername/catchdev@v1
+      - uses: soham131345/catchdev@v1
 ```
 
 catch runs catch on its own PRs — see
@@ -93,7 +93,7 @@ catch runs catch on its own PRs — see
 **Pre-commit / pre-push hook** — add to `.pre-commit-config.yaml`:
 
 ```yaml
-- repo: https://github.com/yourusername/catchdev
+- repo: https://github.com/soham131345/catchdev
   rev: v0.1.0
   hooks:
     - id: catch
