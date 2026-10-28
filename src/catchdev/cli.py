@@ -26,6 +26,14 @@ from . import depcheck, differ, mapper, report, runner
 def main(staged: bool, commit: str | None, all_tests: bool, skip_deps: bool,
          fail_on_suspicious: bool, output: str | None) -> None:
     """Tells you what your AI coding agent just broke."""
+    # Windows consoles default to cp1252; make every printable we emit
+    # (✓, ✗, ⚠, ─, …) survive regardless of the terminal's codepage.
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(encoding="utf-8", errors="replace")
+        except Exception:
+            pass
+
     # In CI pull requests, diff against the PR base, not HEAD~1
     # (squash merges break HEAD~1). GITHUB_BASE_REF is set by GitHub Actions.
     base_ref_env = os.environ.get("GITHUB_BASE_REF")

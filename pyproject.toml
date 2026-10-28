@@ -1,6 +1,6 @@
 [project]
 name = "catchdev"
-version = "0.1.0"
+version = "0.1.2"
 description = "Tells you what your AI coding agent just broke"
 readme = "README.md"
 license = {text = "MIT"}

@@ -22,7 +22,7 @@ _IGNORE_DIRS = {
     "node_modules", ".mypy_cache", ".pytest_cache", ".tox", ".idea",
     "dist", "build", ".eggs",
 }
-_CACHE_VERSION = 3
+_CACHE_VERSION = 4
 
 
 @dataclass
@@ -51,7 +51,7 @@ def _discover_python_files(root: Path) -> list[str]:
         rel = p.relative_to(root)
         if any(part in _IGNORE_DIRS or part.startswith(".") for part in rel.parts):
             continue
-        out.append(str(rel))
+        out.append(rel.as_posix())
     return out
 
 
