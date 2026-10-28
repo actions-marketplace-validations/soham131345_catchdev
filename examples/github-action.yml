@@ -15,7 +15,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install -e .   # install the PR's own project
-      - uses: yourusername/catchdev@v1
+      - uses: soham131345/catchdev@v1
         # with:
         #   all-tests: "false"
         #   skip-deps: "false"

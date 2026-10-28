@@ -157,6 +157,6 @@ def render_markdown(diff: DiffResult, affected: AffectedTests,
     else:
         lines.append("**RESULT: FAIL** ❌ — do not merge")
     lines += ["", "---", "<sub>Posted by "
-              "[catch](https://github.com/yourusername/catchdev) — "
+              "[catch](https://github.com/soham131345/catchdev) — "
               "tells you what your AI coding agent just broke</sub>"]
     return "\n".join(lines) + "\n"
