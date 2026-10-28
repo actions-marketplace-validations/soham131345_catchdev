@@ -1,4 +1,4 @@
-name: "Catch"
+name: "Catchdev"
 description: "Tells you what your AI coding agent just broke — runs affected tests, flags sus deps"
 branding:
   icon: "check-circle"
